@@ -5,40 +5,62 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 </head>
 <body>
-  <div id="main">
-    <h2>Please enter a key</h2>
-    <input id="js-key" type="text" v-model="key"/>
-    <h3>Your key is</h3>
-    <p>{{key}}</p>
+  <div>
+    <div id="main">
+      <h2>Please enter a key</h2>
+      <input id="js-key" type="text" v-model="key"/>
+      <h3>The current active key is</h3>
+      <p>{{key}}</p>
+    </div>
     <br/>
-    <h2>Please enter a message to cipher</h2>
-    <input id="js-tocipher" type="text" v-model="tocipher"/>
-    <h3>{{ciphered}}</h3>
-    <h2>Please enter a message to decipher</h2>
-    <input id="js-todecipher" type="text" v-model="todecipher"/>
-    <h3>{{deciphered}}</h3>
+    <div id="main-cipher">
+      <h2>Please enter a message to cipher</h2>
+      <input id="js-tocipher" type="text" v-model="tocipher"/>
+      <h3>{{ciphered}}</h3>
+    </div>
+    <div id="main-decipher">
+      <h2>Please enter a message to decipher</h2>
+      <input id="js-todecipher" type="text" v-model="todecipher"/>
+      <h3>{{deciphered}}</h3>
+    </div>
   </div>
 
   <script>
-    var vm = new Vue({
+    var vm_key = new Vue({
       el: "#main",
       data: function() {
         return {
-          key: "",
+          key: ""
+        }
+      }
+    });
+
+    var vm_cipher = new Vue({
+      el: "#main-cipher",
+      data: function() {
+        return {
           ciphered: "",
-          tocipher: "",
+          tocipher: ""
+        }
+      }
+    });
+
+    var vm_decipher = new Vue({
+      el: "#main-decipher",
+      data: function() {
+        return {
           deciphered: "",
           todecipher: ""
         }
       }
-    });
+    })
   </script>
 </body>
 <script type="text/javascript" src="cipher.js"></script>
 <script type="text/javascript" src="decipher.js"></script>
 <script type="text/javascript" src="default.js"></script>
 <style>
-#main {
+#main, #main-cipher, #main-decipher {
   font-family: serif;
   text-align: center;
 }
