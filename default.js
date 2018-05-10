@@ -1,3 +1,20 @@
+var key = "";
+var tocipher = "";
+var todecipher = ""
 
-var key = "This is my house Go Get it";
-key = key.replace(/\s+/g, "").toUpperCase().split("");
+$("#js-key").on("input", function() {
+  key = vm.$data.key;
+  key = key.replace(/\s+/g, "").toUpperCase().split("");
+});
+
+$("#js-tocipher").on("input", function() {
+  tocipher = vm.$data.tocipher;
+  vm.$data.ciphered = encycrpt(tocipher);
+  tocipher = "";
+});
+
+$("#js-todecipher").on("input", function() {
+  todecipher = vm.$data.todecipher;
+  vm.$data.deciphered = decycrpt(todecipher);
+  todecipher = "";
+});
