@@ -10,6 +10,7 @@ function decycrptChar(charA, charB) {
 }
 
 function decycrpt(ciphered) {
+  let key = gen(keyPool);
   let cChar = ciphered.split("");
   let decycrpted = new Array(0);
   let ci = 0;
@@ -18,7 +19,7 @@ function decycrpt(ciphered) {
       decycrpted.push(c);
       return;
     }
-    let push = decycrptChar(c, key[ci]);
+    let push = decycrptChar(c.toUpperCase(), key[ci]);
     decycrpted.push(push);
     ci++;
     if (key[ci] == undefined) ci=0;

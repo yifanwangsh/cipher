@@ -9,11 +9,11 @@
   <div>
     <div id="main">
       <h2>Please enter a key</h2>
-      <input id="js-key" type="text" v-model="key_input"/>
+      <input id="js-key" type="password" v-model="key_input"/>
       <button class="button" id="js-submit-key">Submit key</button>
       <span style="display: none" id="js-no-key-input">Please enter a key</span>
-      <h3>The current active key is</h3>
-      <p>{{key}}</p>
+      <h3>The key will be installed as</h3>
+      <p>{{key_input}}</p>
     </div>
     <br/>
     <div id="main-cipher">
@@ -24,6 +24,7 @@
     <div id="main-decipher">
       <h2>Please enter a message to decipher</h2>
       <input id="js-todecipher" type="text" v-model="todecipher"/>
+      <button id="js-decipher-again" type="text">Decipher Again</button>
       <h3>{{deciphered}}</h3>
     </div>
   </div>
@@ -33,6 +34,7 @@
       el: "#main",
       data: function() {
         return {
+          keyPool: "",
           key: "",
           key_input: ""
         }

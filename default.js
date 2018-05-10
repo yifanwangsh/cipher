@@ -21,18 +21,29 @@ $("#js-submit-key").click(function() {
       $("#js-no-key-input").fadeOut();
     })
   }
+  vm_key.$data.key_input = "";
 })
 
 $("#js-tocipher").on("input", function() {
-  tocipher = vm_cipher.$data.tocipher;
-  tocipher = tocipher.replace(/\s+/g, "").toUpperCase();
-  vm_cipher.$data.ciphered = encycrpt(tocipher);
-  tocipher = "";
+  docipher();
 });
 
 $("#js-todecipher").on("input", function() {
-  todecipher = vm_decipher.$data.todecipher;
-  todecipher = todecipher.replace(/\s+/g, "").toUpperCase();
-  vm_decipher.$data.deciphered = decycrpt(todecipher);
-  todecipher = "";
+  dodecipher();
 });
+
+$("#js-decipher-again").on("click", function() {
+  dodecipher();
+})
+
+function docipher() {
+  tocipher = vm_cipher.$data.tocipher;
+  vm_cipher.$data.ciphered = encycrpt(tocipher);
+  tocipher = "";
+}
+
+function dodecipher() {
+  todecipher = vm_decipher.$data.todecipher;
+  vm_decipher.$data.deciphered = decycrpt(todecipher);
+  todecipher = ""
+}
