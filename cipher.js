@@ -7,6 +7,8 @@ function encycrptChar(charA, charB) {
 }
 
 function encycrpt(message) {
+  let key = gen(keyPool);
+  vm_key.$data.key = key.join("");
   let mChar = message.split("");
   let encycrpted = new Array(0);
   let ci = 0;

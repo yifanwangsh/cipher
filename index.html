@@ -3,12 +3,15 @@
 <meta charset="ISO-8859-1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
   <div>
     <div id="main">
       <h2>Please enter a key</h2>
-      <input id="js-key" type="text" v-model="key"/>
+      <input id="js-key" type="text" v-model="key_input"/>
+      <button class="button" id="js-submit-key">Submit key</button>
+      <span style="display: none" id="js-no-key-input">Please enter a key</span>
       <h3>The current active key is</h3>
       <p>{{key}}</p>
     </div>
@@ -30,7 +33,8 @@
       el: "#main",
       data: function() {
         return {
-          key: ""
+          key: "",
+          key_input: ""
         }
       }
     });
@@ -56,6 +60,7 @@
     })
   </script>
 </body>
+<script type="text/javascript" src="randomGenerator.js"></script>
 <script type="text/javascript" src="cipher.js"></script>
 <script type="text/javascript" src="decipher.js"></script>
 <script type="text/javascript" src="default.js"></script>
